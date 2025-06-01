@@ -1,0 +1,43 @@
+from flask import Blueprint, request, redirect, url_for, send_file, render_templete
+import os 
+import pdfplumber
+import pandas as pd
+from werkzeug.utils import secure_filename
+
+pdf_to_excel_bp = Blueprint('pdf_to_excel',_name_)
+
+@pdf_to_excel_bp. route('/pdf-to-excel', methods=['GET' 'POST'])
+def pdf_to excel():
+if request.method == 'GET'':
+# Alihkan ke halaman utama (karena from ada di index.html)
+return render_template('pdf_to_excel.html') # tampilkan form upload
+
+# proses POST (upload dan konversi PDF)
+if 'pdf_file' not in request.files:
+return "not file part"
+
+file = request.files['pdf_file']
+if file.filename == '':
+return "No selected file"
+
+if file:
+filename = secure_filename(file.filename)
+filepath = os.path.join('static/uploads', filename)
+file.save(filepath)
+
+tables = []
+with pdfplumber.open(filepath) as pdf: 
+for page in pdf.pages:
+table = page.extract_table()
+if table:
+df = pd.DataFrame(table[1:], columnes=table[0])
+tables.append(df)
+
+if not tables:
+return "No tables found in PDF'
+
+combined_df = pd.concat(tables, ignore_index=True)
+excel_path = filepath.replace('.pdf', '.x1sx')
+combined_df.to_excel(excel_path, index=flase)
+
+return send_file(excel_path, as_attachment=True)
