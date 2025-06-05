@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
+from moduls.upload_image import upload_image_bp
 from moduls.capture_camera import capture_camera_bp
 from moduls.ocr import ocr_bp
 from moduls.pdf_to_excel import pdf_to_excel_bp
@@ -13,10 +14,13 @@ users={
 
 app.config ['UPLOAD_FOLDER] = 'static/uploads'
 
+app.register_bluprint(upload_image_bp)
 app.register_blueprint(capture_camera_bp)
 app.register_blueprint(ocr_bp)
 app.register_blueprint(pdf_to_excel_bp)
 app.register_blueprint(ocr_to_excel_bp)
+
+#halaman utama
 
 #halaman login
 @app.route('/login', methods=['GET','POST'])
