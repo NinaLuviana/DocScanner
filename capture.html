@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Capture from Camera</title>
+    <style>
+        body {
+            background-color: #FAA4BD;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            color: #fff;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        .button {
+            background-color: #fff;
+            color: #FAA4BD;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .button:hover {
+            background-color: #fefefe;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Capture Kamera ke PDF</h1>
+    <form action="/capture" method="get">
+        <button class="button" type="submit">Ambil Gambar & Unduh PDF</button>
+    </form>
+</body>
+</html>
