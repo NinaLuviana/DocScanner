@@ -21,7 +21,12 @@ app.register_blueprint(pdf_to_excel_bp)
 app.register_blueprint(ocr_to_excel_bp)
 
 #halaman utama
-
+@app.route ('/')
+def index():
+    if 'username' in session:
+        return render_template('index.html',username=session ['username'])
+    return redirect(url_for('login'))
+    
 #halaman login
 @app.route('/login', methods=['GET','POST'])
 def login():
