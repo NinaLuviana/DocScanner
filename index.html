@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='id'>
+<head>
+  <meta charset="UTF-8">
+  <title>DocScanner APP - Dashboard</title>
+</head>
+<body>
+  <header>
+    <h2>DocScanner App</h2>
+  </header>
+  <main class="card-container">
+    <div class="card">
+      <h3>Capture Kamera </h3>
+      <p>Unggah gambar dari perangkat Anda dan ubah menjadi file PDF dengan cepat</p>
+      <a href="/upload/">Buka</a>
+    </div>
+   <div class="card">
+      <h3>Upload Gambar ke PDF</h3>
+      <p>Ambil gambar langsung dari kamera dan konversi ke dalam bentuk PDF.</p>
+      <a href="/capture/">Buka</a>
+    </div>
+    <div class="card">
+      <h3>Gambar ke Teks (OCR)</h3>
+      <p>Gunakan OCR untuk mengenali teks dari gambar dan mengekstraknya.</p>
+      <a href="/ocr/">Buka</a>
+    </div>
+     <div class="card">
+      <h3>PDF ke Excel</h3>
+      <p>Konversi file PDF ke dalam format Excel untuk pengolahan data lebih mudah.<</p>
+      <a href="/pdf-to-excel">Buka</a>
+    </div>
+    <div class="card">
+            <h3>📝 Gambar ke Excel (OCR)</h3>
+            <p>Ekstrak teks dari gambar dan simpan dalam format Excel secara otomatis.</p>
+            <a href="/ocr-to-excel">Buka</a>
+        </div>
+  </main>
+  <a href="{{url_for('logout')}}">Logout</a>
+  <footer>
+    2025 DocScanner Team
+  </footer>
+</body>
+</html>
